@@ -1,0 +1,42 @@
+# Docs: https://caddyserver.com/docs/caddyfile
+0.0.0.0:80 {
+  proxy / node:9000 {
+    transparent
+  }
+    
+}
+
+# Replace with your domain
+https://example.com {
+  proxy / node:9000 {
+    transparent
+  }
+
+  # Replace with your email  
+  #tls example@email.com
+    
+}
+
+nodedock1.demo:80 {
+    root /var/www/public
+    # Create a Webhook in git.
+    #git {
+	#repo https://github.com/xxx/xxx
+    #    path /home/xxx
+    #    #interval 60
+    #    hook  webhook nodedock
+    #    hook_type   generic
+    #}
+
+}
+
+nodedock2.demo:80 {
+    # Create a Proxy and cors.
+    #proxy domain.com
+	#cors
+}
+
+nodedock3.demo:80 {
+    import authlist.conf
+    root /var/www/public
+}

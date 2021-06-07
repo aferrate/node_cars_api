@@ -1,0 +1,32 @@
+server {
+
+    listen 80;
+    listen [::]:80;
+
+    server_name app.test;
+    root /var/www/app;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ @fallback;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/letsencrypt/;
+        log_not_found off;
+    }
+
+    location @fallback {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://node-upstream;
+    }
+
+    error_log /var/log/nginx/app_error.log;
+    access_log /var/log/nginx/app_access.log;
+}
