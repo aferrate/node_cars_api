@@ -3,18 +3,7 @@
 
 run docker:
 ```
- cd nodedock
-```
-```
- docker-compose up -d node nginx mysql phpmyadmin
-```
-get into the container:
-```
- docker-compose exec workspace bash
-```
-install dependencies:
-```
- npm install
+ docker-compose up
 ```
 
 
@@ -25,10 +14,9 @@ access phpmyadmin:
 
 credentials:
 ```
- server mysql
  user root
  password root
 ```
 
-call localhost in your browser:
-- [http://localhost](http://localhost/)
+call localhost in your browser to test if works:
+- [http://localhost:3000/api/v1/](http://localhost:3000/api/v1/)
