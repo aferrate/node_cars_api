@@ -1,27 +1,28 @@
 var router = require('express').Router();
+var carsController = require ('../controllers/carsController')
 
 router.get('/search', function(req, res) {
-    res.json({ message: 'Vas a buscar una car' });
+    carsController.search(req, res);
 });
 
-router.get('/', function(req, res) {
-    res.json({ message: 'Estás conectado a la API. Recurso: cars' });
+router.get('/findAll', function(req, res) {
+    carsController.findAll(req, res);
 });
 
-router.get('/:id', function(req, res) {
-    res.json({ message: 'Vas a obtener la car con id ' + req.params.id });
+router.get('find/:id', function(req, res) {
+    carsController.find(req, res);
 });
 
-router.post('/', function(req, res) {
-    res.json({ message: 'Vas a añadir una car' });
+router.post('/create', function(req, res) {
+    carsController.create(req, res);
 });
 
-router.put('/:id', function(req, res) {
-    res.json({ message: 'Vas a actualizar la car con id ' + req.params.id });
+router.put('/update/:id', function(req, res) {
+    carsController.update(req, res);
 });
 
-router.delete('/:id', function(req, res) {
-    res.json({ message: 'Vas a borrar la car con id ' + req.params.id});
+router.delete('/delete/:id', function(req, res) {
+    carsController.delete(req, res);
 });
 
 module.exports = router;

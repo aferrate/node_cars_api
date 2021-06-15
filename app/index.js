@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express(); 
-var port = process.env.NODE_LOCAL_PORT || 3000;
-var router = require('./routes');
+const express = require('express');
+const app = express(); 
+const port = process.env.NODE_LOCAL_PORT || 3000;
+const router = require('./routes');
 
 app.use('/api/v1/', router);
 app.listen(port);
