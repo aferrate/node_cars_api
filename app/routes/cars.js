@@ -17,12 +17,12 @@ router.post('/create', function(req, res) {
     carsController.create(req, res);
 });
 
-router.put('/update/:id', function(req, res) {
+router.put('/update', function(req, res) {
     carsController.update(req, res);
 });
 
-router.delete('/delete/:id', function(req, res) {
-    carsController.delete(req, res);
+router.delete('/delete', function(req, res) {
+    carsController.destroy(req, res);
 });
 
 module.exports = router;
