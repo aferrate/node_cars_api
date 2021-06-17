@@ -26,15 +26,15 @@ call localhost in your browser to test if works:
 
 1. localhost:3000/api/v1/
 
-⋅⋅⋅no json needed
+..*no json needed
 
 2. localhost:3000/api/v1/cars/findAll
 
-⋅⋅⋅no json needed
+..*no json needed
 
 3. localhost:3000/api/v1/cars/findAllEnabled
 
-⋅⋅⋅no json needed
+..*no json needed
 
 4. localhost:3000/api/v1/cars/findBySlug
 ```
