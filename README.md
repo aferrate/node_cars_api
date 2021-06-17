@@ -25,11 +25,17 @@ call localhost in your browser to test if works:
 ### Endpoints
 
 1. localhost:3000/api/v1/
-··· no json needed
+
+⋅⋅⋅no json needed
+
 2. localhost:3000/api/v1/cars/findAll
-··· no json needed
+
+⋅⋅⋅no json needed
+
 3. localhost:3000/api/v1/cars/findAllEnabled
-··· no json needed
+
+⋅⋅⋅no json needed
+
 4. localhost:3000/api/v1/cars/findBySlug
 ```
 {"slug" : "test1"}
@@ -39,7 +45,8 @@ call localhost in your browser to test if works:
 {"id" : 2}
 ```
 6. localhost:3000/api/v1/cars/search
-··· field can have values: mark, model and year
+
+⋅⋅⋅field can have values: mark, model and year
 ```
 {
     "field" : "mark",
