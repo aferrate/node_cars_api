@@ -1,8 +1,62 @@
 var models = require("../sequelize/index");
+const { Op } = require("sequelize");
 
 module.exports = {
     findAll: async function(req, res) {
         models.Car.findAll().then(carResponse => {
+            res.status(200).json(carResponse);
+        }).catch( error => {
+            res.status(400).send(error);
+        });
+    },
+    searchByField: async function(req, res) {
+        switch (req.body.field)
+        {
+            case "model":
+                models.Car.findAll({where: {model: {[Op.like]: "%" + req.body.search + "%"}}}).then(carResponse => {
+                    res.status(200).json(carResponse);
+                }).catch( error => {
+                    res.status(400).send(error);
+                });
+
+                break;
+            case "mark":
+                models.Car.findAll({where: {mark: {[Op.like]: "%" + req.body.search + "%"}}}).then(carResponse => {
+                    res.status(200).json(carResponse);
+                }).catch( error => {
+                    res.status(400).send(error);
+                });
+
+                break;
+            case "year": 
+                models.Car.findAll({where: {year: req.body.search}}).then(carResponse => {
+                    res.status(200).json(carResponse);
+                }).catch( error => {
+                    res.status(400).send(error);
+                });
+
+                break;
+            default: 
+                res.status(200).json({message: "no valid field"});
+                break;
+        }
+    },
+    findAllEnabled: async function(req, res) {
+        models.Car.findAll({where: {enabled: true}}).then(carResponse => {
+            res.status(200).json(carResponse);
+        }).catch( error => {
+            res.status(400).send(error);
+        });
+    },
+    findBySlug: async function(req, res) {
+        models.Car.findAll({where: {slug: req.body.slug}}).then(carResponse => {
+            res.status(200).json(carResponse);
+        }).catch( error => {
+            res.status(400).send(error);
+        });
+    },
+    findById: async function(req, res) {
+        models.Car.findAll({where: {id: req.body.id}}).then(carResponse => {
             res.status(200).json(carResponse);
         }).catch( error => {
             res.status(400).send(error);

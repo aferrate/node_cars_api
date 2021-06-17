@@ -1,16 +1,24 @@
 var router = require('express').Router();
 var carsController = require ('../controllers/carsController')
 
-router.get('/search', function(req, res) {
-    carsController.search(req, res);
-});
-
 router.get('/findAll', function(req, res) {
     carsController.findAll(req, res);
 });
 
-router.get('find/:id', function(req, res) {
-    carsController.find(req, res);
+router.get('/search', function(req, res) {
+    carsController.searchByField(req, res);
+});
+
+router.get('/findAllEnabled', function(req, res) {
+    carsController.findAllEnabled(req, res);
+});
+
+router.get('/findBySlug', function(req, res) {
+    carsController.findBySlug(req, res);
+});
+
+router.get('/findById', function(req, res) {
+    carsController.findById(req, res);
 });
 
 router.post('/create', function(req, res) {
