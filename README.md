@@ -94,5 +94,3 @@ call localhost in your browser to test if works:
 ```
 {"id_car": 1}
 ```
-
-test
