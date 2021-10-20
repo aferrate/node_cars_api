@@ -6,6 +6,8 @@ run docker:
  docker-compose up
 ```
 
+Access phpmyadmin and copy the code of node_cars.sql in sql textbox to create database and table.
+
 
 ### Start application
 
